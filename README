@@ -1,0 +1,13 @@
+This is my take on Appengine's demo Guestbook application. It uses Spring 3 and Maven.
+
+To build:
+
+    mvn clean install
+
+To start the server:
+
+    ant runserver
+
+Note the AppConfig class, which has the @Configuration annotation; this replaces Google's PMF class and gets rid of the static PersistenceManagerFactory, using dependency injection instead.
+
+Also, I've created some base classes for the DAOs, in the com.vikinghammer.dao package. This simplifies the creation of new DAO classes.
