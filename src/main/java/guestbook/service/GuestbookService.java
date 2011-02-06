@@ -14,6 +14,10 @@ public class GuestbookService {
     @Autowired
     private GreetingDao greetingDao;
 
+    public GuestbookService() {
+        super();
+    }
+
     public GuestbookService(
         GreetingDao greetingDao
     ) {
