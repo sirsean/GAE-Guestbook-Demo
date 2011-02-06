@@ -10,8 +10,16 @@ import guestbook.domain.Greeting;
 
 @Service
 public class GuestbookService {
+
     @Autowired
     private GreetingDao greetingDao;
+
+    public GuestbookService(
+        GreetingDao greetingDao
+    ) {
+        super();
+        this.greetingDao = greetingDao;
+    }
 
     public void addGreeting(Greeting greeting) {
         this.greetingDao.store(greeting);
