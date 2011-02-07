@@ -58,15 +58,15 @@ public abstract class BaseVHDao<T> implements VHDao<T> {
         }
     }
 
-    protected T first(VHQuery vhq, Object... args) {
+    protected T first(VHQuery vhQuery, Object... args) {
         PersistenceManager pm = pmFactory.getPersistenceManager();
         try {
-            Query query = pm.newQuery(vhq.getClazz());
-            if (vhq.hasFilter()) {
-                query.setFilter(vhq.getFilter());
+            Query query = pm.newQuery(vhQuery.getClazz());
+            if (vhQuery.hasFilter()) {
+                query.setFilter(vhQuery.getFilter());
             }
-            if (vhq.hasOrdering()) {
-                query.setOrdering(vhq.getOrdering());
+            if (vhQuery.hasOrdering()) {
+                query.setOrdering(vhQuery.getOrdering());
             }
             query.setRange(0, 1);
             List<T> list = (List<T>)query.executeWithArray(args);
