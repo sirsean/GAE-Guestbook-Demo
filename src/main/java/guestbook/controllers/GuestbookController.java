@@ -30,10 +30,16 @@ public class GuestbookController {
         log.info("Looking at the guestbook index");
         User user = userService.getCurrentUser();
 
+        Greeting latestGreeting = null;
+        if (user != null) {
+            latestGreeting = guestbookService.getLatestByAuthor(user);
+        }
+
         model.addAttribute("user", user);
         model.addAttribute("loginHref", userService.createLoginURL(Url.INDEX));
         model.addAttribute("logoutHref", userService.createLogoutURL(Url.INDEX));
         model.addAttribute("greetings", guestbookService.recentGreetings(5));
+        model.addAttribute("latestGreeting", latestGreeting);
 
         return Template.INDEX;
     }

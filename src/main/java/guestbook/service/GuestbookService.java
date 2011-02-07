@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.appengine.api.users.User;
+
 import guestbook.dao.GreetingDao;
 import guestbook.domain.Greeting;
 
@@ -35,5 +37,9 @@ public class GuestbookService {
 
     public List<Greeting> recentGreetings(int count) {
         return this.greetingDao.mostRecent(count);
+    }
+
+    public Greeting getLatestByAuthor(User author) {
+        return greetingDao.getLatestByAuthor(author);
     }
 }

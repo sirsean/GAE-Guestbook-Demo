@@ -12,6 +12,14 @@
   <c:when test="${!empty user}">
     <p>Hello, ${user.nickname}! (You can <a href="${logoutHref}">sign
     out</a>.)</p>
+    <c:choose>
+        <c:when test="${!empty latestGreeting}">
+            <p>Your latest greeting: ${latestGreeting.content}</p>
+        </c:when>
+        <c:otherwise>
+            <p>You have not commented yet.</p>
+        </c:otherwise>
+    </c:choose>
   </c:when>
   <c:otherwise>
     <p>Hello! <a href="${loginHref}">Sign in</a> to include your
