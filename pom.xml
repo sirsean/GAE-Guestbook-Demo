@@ -17,6 +17,12 @@ http://maven.apache.org/maven-4_0_0.xsd">
     <dependencies>
 
         <dependency>
+            <groupId>com.vikinghammer</groupId>
+            <artifactId>vh-dao</artifactId>
+            <version>0.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google</groupId>
             <artifactId>appengine-tools</artifactId>
             <version>1.4.0</version>
